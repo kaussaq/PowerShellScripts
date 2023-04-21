@@ -7,7 +7,7 @@ $AR = Read-Host "Please Enter Access Rights Required"
 $Calendar = Read-Host "Enter Full Address of Calendar" 
 
 #Import CSV and begin for-loop adding each user into calendar provided above
-Import-Csv C:\temp\users.csv | ForEach {
+Import-Csv C:\temp\users.csv | ForEach-Object {
 Add-MailboxFolderPermission $Calendar":\Calendar" -User $_.UPN -AccessRights $AR
  If($?)  
  {  
