@@ -11,10 +11,10 @@ $MainMenu = {
    Write-Host
    Write-Host " Select an option and press Enter: "  -nonewline
 }
-cls
+Clear-Host
 
 Do {
-   cls
+   Clear-Host
    Invoke-Command $MainMenu
    $Select = Read-Host
    Switch ($Select){
@@ -41,7 +41,7 @@ Do {
        }
        3{
            Connect-ExchangeOnline 
-
+           
            #Provide Distribution group you want to bulk-update
            $dlgroup = Read-Host "Please Enter Group address"
        
