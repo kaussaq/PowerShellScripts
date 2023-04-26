@@ -5,8 +5,8 @@ $MainMenu = {
    Write-Host
    Write-Host " 1.) Get mailbox Access for a specific user"
    Write-Host " 2.) Get list of mailboxes forwarding to a specific user"
-   Write-Host " 3.) Update Distribution list with entries from C:\Temp\Users.CSV"
-   Write-Host " 4.) Update Calendar permissions with entries from C:\Temp\Users.CSV"
+   Write-Host " 3.) Update Distribution list with entries from C:\Temp\Users.CSV (UPN needs to be stated in cell A1)"
+   Write-Host " 4.) Update Calendar permissions with entries from C:\Temp\Users.CSV (UPN needs to be stated in cell A1)"
    Write-Host " 5.) Quit"
    Write-Host
    Write-Host " Select an option and press Enter: "  -nonewline
