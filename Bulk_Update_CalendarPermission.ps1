@@ -8,13 +8,17 @@ $Calendar = Read-Host "Enter Full Address of Calendar"
 
 #Import CSV and begin for-loop adding each user into calendar provided above
 Import-Csv C:\temp\users.csv | ForEach-Object {
-Add-MailboxFolderPermission $Calendar":\Calendar" -User $_.UPN -AccessRights $AR
+Add-MailboxFolderPermission $Calendar":\Calendar" -User $_.UPN -AccessRights $AR -ErrorAction:SilentlyContinue
  If($?)  
  {  
  Write-Host $UPN Successfully added -ForegroundColor Green 
  }  
+ Elseif($? -ne "True"){
+    Set-MailboxFolderPermission $Calendar":\Calendar" -User $_.UPN -AccessRights $AR
+    Write-Host $UPN Successfully updated -ForegroundColor Green
+ }
  Else  
  {  
- Write-Host $UPN - Error occurred –ForegroundColor Red  
+ Write-Host $UPN - Error occurred –ForegroundColor Red
  }  
 } 
