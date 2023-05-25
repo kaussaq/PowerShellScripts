@@ -12,7 +12,11 @@ Import-CSV 'C:\temp\users.csv' | ForEach-Object {
  If($?)  
  {  
  Write-Host $UPN Successfully added -ForegroundColor Green 
- }  
+ }
+ Elseif($? -ne "True"){
+    Set-MailboxPermission –Identity $SharedMailbox -Member $UPN -AccessRights $AccessRights
+    Write-Host $UPN Successfully updated -ForegroundColor Green 
+ }
  Else  
  {  
  Write-Host $UPN - Error occurred –ForegroundColor Red  
