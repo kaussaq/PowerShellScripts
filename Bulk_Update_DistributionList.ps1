@@ -4,7 +4,7 @@
 $dlgroup = Read-Host "Please Enter Group address"
 
 #Import CSV of UPN's from C:\temp\users.csv and begin for-loop adding each to the distribution list above
-Import-CSV 'C:\temp\users.csv' | ForEach-Object {  
+Import-CSV /users/tombuckfield/users.csv | ForEach-Object {  
  $UPN=$_.UPN 
  Write-Progress -Activity "Adding $UPN to group… " 
  Add-DistributionGroupMember –Identity $dlgroup -Member $UPN  
